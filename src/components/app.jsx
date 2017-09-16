@@ -1,27 +1,21 @@
 import React, { Component } from 'react';
-import Greeting from './greeting';
+import SearchForm from './SearchForm';
 
 class App extends Component {
   constructor(props){
     super(props);
     this.state={
-      name: 'John',
     };
   }
-
- handleNameChange(e){
-   this.setState({name: e.target.value});
- }
+handlePlaceSubmit(place){
+  console.log(place);
+}
 
   render() {
-  return (
+    return (
     <div>
-      <input
-        type="text"
-        value={this.state.name}
-        onChange={e=> this.handleNameChange(e)}
-      />
-      <Greeting name={this.state.name }/>
+      <h1>緯度経度検索</h1>
+      <SearchForm onSubmit={place => this.handlePlaceSubmit(place)} />
     </div>
     );
   }
